@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url("../images/Rectangle\ 5.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-card{
+    width: 900px;
+    height: 470px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255,255,255,.3);
+    box-shadow: 0 15px 20px rgba(0,0,0,.2);
+    padding: 20px 40px 20px 40px;
+}
+
+.signup-header{
+    margin-bottom: 10px;
+}
+
+.login-here{
+    color: #931717;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.login-here:hover{
+    cursor:pointer;
+}
+
+.leftside-and-rightside{
+    display: flex;
+    align-items: center;
+    height: 40vh;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.left-side{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-right: 10px;
+}
+
+.right-side{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+p{
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input{
+    width: 350px;
+    height: 40px;
+    border: 2px solid #F26627;
+    background: none;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.submit-button{
+    border: none;
+    background-color: #F26627;
+    color: white;
+    width:150px ;
+    height: 40px;
+    border-radius: 8px;
+    margin-left: 305px;
+    transition: ease-in-out .4s;
+}
+
+.submit-button:hover{
+    cursor:pointer;
+    background-color: rgb(253, 173, 25);
+    color: white;
+}
+
+::placeholder{
+    color: rgb(94, 91, 91);
+}

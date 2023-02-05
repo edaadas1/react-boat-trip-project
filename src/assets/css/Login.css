@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+.login-body{
     background: url("../images/mumbai-goa-yachts7.jpeg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
@@ -57,7 +57,7 @@ p{
     margin-bottom: 5px;
 }
 
-input{
+.login-form > input{
     border: 2px solid #F26627;
     border-radius: 10px;
     width: 300px;

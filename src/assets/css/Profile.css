@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.profile-body{
+    background: url("../images/Rectangle\ 5.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card{
+    width: 850px;
+    height: 510px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255,255,255,.3);
+    box-shadow: 0 15px 20px rgba(0,0,0,.2);
+    padding: 20px 40px 20px 40px;
+}
+
+.profile-header-part{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-header{
+    margin-bottom: 40px;
+}
+
+.profile-myAdvertisements-button{
+    width: 160px ;
+    height: 40px;
+    color: white;
+    background-color: #FF6D0E;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.profile-picture{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.profile-picture-button{
+    width: 160px ;
+    height: 30px;
+    background-color: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.profile-picture-button:hover{
+    cursor:pointer
+}
+
+.profile-myAdvertisements-button:hover{
+    cursor:pointer
+}
+
+.space{
+    border: 1px solid black;
+    margin-top: 15px;
+    width: 740px;
+    margin-bottom: 5px;
+}
+
+.profile-btn-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-save-btn{
+    width: 140px;
+    height: 40px;
+    color: white;
+    background-color: #FF6D0E;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+.profile-save-btn:hover{
+   cursor: pointer;
+}

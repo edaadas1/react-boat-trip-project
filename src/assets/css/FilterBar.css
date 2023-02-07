@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.filter-bar{
+    width: 267px;
+    height: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.price-range{
+    text-align: center;
+    margin: 10px 0 5px 0; 
+ }
+
+.date-and-time{
+    display: flex;
+    margin-top: 10px;
+}
+
+.date-picker,.time-picker{
+    width: 130px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.search-input{
+    width: 100%;
+    margin-right: 5px;
+    margin-top: 10px;
+    border: 2px solid black;
+}

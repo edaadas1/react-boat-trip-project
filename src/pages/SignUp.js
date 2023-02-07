@@ -33,8 +33,7 @@ const SignUp = () =>{
             loggedIn:true
         }))))
         
-        navigate("/Profile")
-
+        navigate("/")
     }
 
     return(

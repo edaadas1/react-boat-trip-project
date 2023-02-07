@@ -31,6 +31,13 @@
     
 }
 
+.first-navbar-login-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px 0 30px;
+}
+
 .first-navbar-add-tour-btn:hover,.first-navbar-login-btn:hover{
     cursor: pointer;
     box-shadow: 5px 5px 5px rgb(85, 80, 80) ;

@@ -13,10 +13,6 @@ const SecondNavbar =()=> {
         navigate("/")
     }
 
-    const login=()=>{
-        navigate("/Login")
-    }
-
     const userLogout=()=>{
         navigate("/Login")
     }
@@ -29,8 +25,8 @@ const SecondNavbar =()=> {
                 </div>
                 <div className="second-navbar-btn-part">
                 <button className="second-navbar-back-tours-btn" onClick={backTours}>BACK TO TOURS</button>
-                <div className="second-navbar-user-part" onClick={login}>
-                    <p>Hİ,USER</p>
+                <div className="second-navbar-user-part">
+                    <p className="second-navbar-user-name">Hİ,USER</p>
                     <Lottie animationData={logout} style={{width:"30px"}} className="logout-icon-btn" onClick={userLogout}></Lottie>
                 </div>
                 </div>

@@ -5,7 +5,7 @@
 }
 
 .login-body{
-    background: url("../images/mumbai-goa-yachts7.jpeg") no-repeat center center fixed;
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/mumbai-goa-yachts7.jpeg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
     overflow: hidden;
@@ -43,7 +43,7 @@
     margin-top: 10vh;
     border-radius: 20px;
     color: white;
-    background: rgba(255,255,255,.6);
+    background: rgba(255,255,255,.5);
     box-shadow: 0 15px 20px rgba(0,0,0,.2);
 }
 
@@ -76,7 +76,7 @@ p{
 }
 
 .login-button{
-    background-color: #F26627; 
+    background-color: rgb(248, 101, 3);
     border: none;
     color: white;
     font-size: 18px;
@@ -87,11 +87,12 @@ p{
     margin-bottom: 20px;
     transition: ease-in-out .4s;
     margin-left: 80px;
+    box-shadow: 5px 5px 5px black;
 }
 
 .login-button:hover{
     cursor: pointer;
-    background-color: rgb(253, 173, 25);
+    height: 50px;
     color: white;
 }
 

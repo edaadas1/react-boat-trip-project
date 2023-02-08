@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.new-tour-body{
+    width: 100%;
+    background-image: url("../images/ocean.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden
+}
+
+.newtour-card{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background: rgba(255,255,255,.6);
+}
+
+.addboat-img{
+    width: 15%;
+}
+
+.addboat-img:hover{
+    cursor: pointer;
+}
+
+.newtour-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.form-items{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.form-button-part{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-items-input{
+    margin: 0;
+    border: 1px solid black;
+}

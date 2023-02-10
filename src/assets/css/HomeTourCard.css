@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tour-card{
+    width: 450px;
+    height: auto;
+    padding: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg,rgba(255,255,255,0.5),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+}
+
+.tour-card-img-part{
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tour-card-img{
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tour-card-info-part{
+    width: 100%;
+}
+
+.tour-info-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tour-p{
+    width: 30%;
+}
+
+.destination-ul{
+    list-style-type: none;
+}
+
+.buy-btn{
+    width: 170px;
+    height: 50px;
+    border:none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #56CB43;
+    color: white;
+    font-size: 15px;
+    padding-left: 15px;
+    transition: ease-in-out .3s;
+}
+
+.buy-btn:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+}

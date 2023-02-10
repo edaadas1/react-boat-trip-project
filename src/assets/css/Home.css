@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-body{
+    background: url("../images/beach.jpg") no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.home-filter-and-tours{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.home-tour-container{
+    width: 75%;
+    height: auto;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

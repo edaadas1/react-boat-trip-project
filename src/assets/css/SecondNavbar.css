@@ -30,7 +30,7 @@
     transition: ease-in-out .2s;   
 }
 
-.second-navbar-back-tours-btn:hover{
+.second-navbar-back-tours-btn:hover,.second-navbar-user-part:hover{
     cursor: pointer;
     box-shadow: 5px 5px 5px rgb(85, 80, 80) ;
 }
@@ -58,6 +58,10 @@
 .second-navbar-user-name{
    margin: 0;
 }
+
+.second-navbar-user-name:hover{
+    cursor:pointer;
+ }
 
 .logout-icon-btn{
     transition: ease-in-out .2s;

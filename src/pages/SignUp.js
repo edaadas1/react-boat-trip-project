@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { login } from './../redux/userSlice';
 import { useDispatch } from 'react-redux';
 import { useRef } from 'react';
-import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 const SignUp = () =>{
@@ -21,7 +20,7 @@ const SignUp = () =>{
     const ConfirmPasswordInputElement = useRef();
     const PhoneInputElement = useRef();
 
-    const user = useSelector(state=>state.user.user);
+    // const user = useSelector(state=>state.user.user);
 
     var config = {
         headers : {'Content-Type':'application/x-www-form-urlencoded'}
@@ -47,12 +46,15 @@ const SignUp = () =>{
                         loggedIn:true
                     }
                     
-                    axios.post("http://localhost:80/react-boat-project/addUser.php",obj,config).then(response=>{
-                        console.log(response)
+                    axios.post("http://localhost:80/react-boat-project/addUser.php",JSON.stringify(obj),config).then(response=>{
+                        console.log(response.data);
+                        navigate("/") ;
+                        dispatch(login(obj));
+
                     }).catch(error=>{
-                        console.log("hata oluştu")
+                        console.log("error");
                     }) 
-                    // navigate("/")        dispatch(login(obj));
+    
                  }
                 else{
                     alert("Passwords are not the same!");
@@ -65,10 +67,8 @@ const SignUp = () =>{
         else{
             alert("All fields must be filled")
         } 
-        
     }
 
-       
     return(
         <>
        

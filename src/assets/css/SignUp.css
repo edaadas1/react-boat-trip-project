@@ -15,8 +15,8 @@
 }
 
 .signup-card{
-    width: 900px;
-    height: 440px;
+    width: 60%;
+    height: 70vh;
     border: none;
     border-radius: 15px;
     background: rgba(255,255,255,.3);
@@ -38,25 +38,20 @@
     cursor:pointer;
 }
 
-.leftside-and-rightside{
+.signup-form-items{
     display: flex;
-    align-items: center;
-    height: 40vh;
+    flex-direction: column;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
-.left-side{
+.leftside-and-rightside{
     display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin-right: 10px;
+    justify-content: space-between;
 }
 
-.right-side{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
+.left-side,.right-side{
+    width: 50%;
 }
 
 p{
@@ -66,7 +61,7 @@ p{
 }
 
 input{
-    width: 350px;
+    width: 95%;
     height: 40px;
     border: 2px solid #F26627;
     background: none;
@@ -75,18 +70,23 @@ input{
     border-radius: 10px;
 }
 
-.submit-button{
+.signup-btn-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.signup-submit-button{
     border: none;
     background-color: #F26627;
     color: white;
-    width:150px ;
+    width: 150px;
     height: 40px;
     border-radius: 8px;
-    margin-left: 305px;
     transition: ease-in-out .4s;
 }
 
-.submit-button:hover{
+.signup-submit-button:hover{
     cursor:pointer;
     background-color: rgb(253, 173, 25);
     color: white;

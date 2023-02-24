@@ -7,15 +7,12 @@ export const newtourSlice = createSlice({
   },
   reducers: {
     addTour: (state,action)=>{
-        state.tour=action.payload
-    },
-    clearTour: (state)=>{
-        state.tour=null
+      state.tour=action.payload
     }
   },
 })
 
-export const { addTour , clearTour} = newtourSlice.actions
+export const { addTour } = newtourSlice.actions
 
 export const selectUser = (state) => state.tour
 

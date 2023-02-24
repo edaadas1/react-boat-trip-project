@@ -6,12 +6,10 @@ import { useNavigate } from 'react-router-dom';
 const Profile =()=>{
 
     const navigate = useNavigate();
-  
+
     const advertisements=()=>{
         navigate("/MyAdvertisements")
     }
-
-    const user = JSON.parse(localStorage.getItem("user"))
 
     return(
         <>
@@ -35,20 +33,20 @@ const Profile =()=>{
                 <form className="leftside-and-rightside">
                 <div className="left-side">
                 <p>Name :</p>
-                <input type="text" placeholder="name" value={user.name} ></input>
+                <input type="text" placeholder="name"></input>
                 <p>Last Name :</p>
-                <input type="text" placeholder="last name" value={user.lastname}></input>
+                <input type="text" placeholder="last name"></input>
                 <p>Email :</p>
-                <input type="email" placeholder="email" value={user.email}></input>
+                <input type="email" placeholder="email"></input>
                 </div>
 
                 <div className="right-side">
                 <p>Password :</p>
-                <input type="text" placeholder="password" value={user.password}></input>
+                <input type="text" placeholder="password"></input>
                 <p>Confirm Password :</p>
-                <input type="text" placeholder="confirm password" value={user.confirmpassword}></input>
+                <input type="text" placeholder="confirm password"></input>
                 <p>Phone Number :</p>
-                <input type="text" placeholder="phone number" value={user.phone}></input>
+                <input type="text" placeholder="phone number"></input>
                 </div>
                 </form>
 

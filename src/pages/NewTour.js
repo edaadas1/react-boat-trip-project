@@ -4,26 +4,48 @@ import "../assets/css/NewTour.css"
 import addboat from "../assets/images/addboat.png"
 import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
-import { useState } from 'react';
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const NewTour =()=>{
 
-    const [boatName,setboatName] = useState("");
-    const [location,setLocation] = useState("");
-    const [totalCapacity,setTotalCapacity] = useState("");
-    const [availableSeatNumber,setAvailableSeatNumber] = useState("");
-    const [date,setDate] = useState("");
-    const [time,setTime] = useState("");
-    const [menu,setMenu] = useState("");
-    const [pricePerPerson,setPricePerPerson] = useState("");
-    const [destinationPlaces,setDestinationPlaces] = useState("");
+    const BoatNameInputElement = useRef();
+    const CityInputElement = useRef();
+    const DistrictInputElement = useRef();
+    const AddressInputElement = useRef();
+    const TotalCapacityInputElement = useRef();
+    const DateInputElement = useRef();
+    const DepartureTimeInputElement = useRef();
+    const EndTimeInputElement = useRef();
+    const MenuInputElement = useRef();
+    const PricePerPersonInputElement = useRef();
+    const DestinationPlacesInputElement = useRef();
+    const ContactInputElement = useRef();
 
+    const dispatch = useDispatch()
 
     const addTour =(e)=> {
-       
-        
+        e.preventDefault();
+        dispatch(addTour({
+            boatname:BoatNameInputElement.current?.value,
+            city:CityInputElement.current?.value,
+            district:DistrictInputElement.current?.value,
+            address:AddressInputElement.current?.value,
+            totalCapacity:TotalCapacityInputElement.current?.value,
+            date:DateInputElement.current?.value,
+            departuretime:DepartureTimeInputElement.current?.value,
+            endtime:EndTimeInputElement.current?.value,
+            menu:MenuInputElement.current?.value,
+            pricePerPerson:PricePerPersonInputElement.current?.value,
+            destinationPlaces:DestinationPlacesInputElement.current?.value,
+            contact:ContactInputElement.current?.value
+        }))
+     
     }
 
+    const tour = useSelector(state=>state.newtour.tour)
+    console.log(tour)
 
     return(
         <>
@@ -31,49 +53,62 @@ const NewTour =()=>{
         <SecondNavbar />
          <div className="newtour-card">
             <img alt="boat img" src={addboat} className="addboat-img"></img>
-                <form className="newtour-form">
+                <form className="newtour-form" onSubmit={(e)=>addTour(e)}>
                 <div className="form-items">
                         <label>Boat Name:</label>
-                        <input className="form-items-input" placeholder="boat name" value={boatName} onChange={(e)=>setboatName(e.target.value)}></input>
+                        <input className="form-items-input" placeholder="boat name" ref={BoatNameInputElement}></input>
                     </div>
                     <div className="form-items">
-                        <label>Location:</label>
-                        <input className="form-items-input" type="text" placeholder="location" value={location} onChange={(e)=>setLocation(e.target.value)}></input>
+                        <label>City:</label>
+                        <input className="form-items-input" type="text" placeholder="city" ref={CityInputElement}></input>
+                    </div>
+                    <div className="form-items">
+                        <label>District:</label>
+                        <input className="form-items-input" type="text" placeholder="district" ref={DistrictInputElement} ></input>
+                    </div>
+                    <div className="form-items">
+                        <label>Address:</label>
+                        <input className="form-items-input" type="text" placeholder="address" ref={AddressInputElement} ></input>
                     </div>
                     <div className="form-items">
                         <label>Total Capacity:</label>
-                        <input className="form-items-input" type="number" placeholder="total capacity" value={totalCapacity} onChange={(e)=>setTotalCapacity(e.target.value)}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Available Seat Number:</label>
-                        <input className="form-items-input" type="number" placeholder="available seat number" value={availableSeatNumber} onChange={(e)=>setAvailableSeatNumber(e.target.value)}></input>
+                        <input className="form-items-input" type="number" placeholder="total capacity" ref={TotalCapacityInputElement}></input>
                     </div>
                     <div className="form-items">
                         <label>Date:</label>
-                        <input className="form-items-input" type="date" value={date} onChange={(e)=>setDate(e.target.value)}></input>
+                        <input className="form-items-input" type="date" ref={DateInputElement}></input>
                     </div>
                     <div className="form-items">
-                        <label>Time:</label>
-                        <input className="form-items-input" type="time" value={time} onChange={(e)=>setTime(e.target.value)}></input>
+                        <label>Departure Time:</label>
+                        <input className="form-items-input" type="time" ref={DepartureTimeInputElement} ></input>
+                    </div>
+                    <div className="form-items">
+                        <label>End Time:</label>
+                        <input className="form-items-input" type="time" ref={EndTimeInputElement}></input>
                     </div>
                     <div className="form-items">
                         <label>Menu:</label>
-                        <input className="form-items-input" type="text" placeholder="menu" value={menu} onChange={(e)=>setMenu(e.target.value)}></input>
+                        <input className="form-items-input" type="text" placeholder="menu" ref={MenuInputElement}></input>
                     </div>
                     <div className="form-items">
                         <label>Price Per Person:</label>
-                        <input className="form-items-input" type="number" placeholder="price per person" value={pricePerPerson} onChange={(e)=>setPricePerPerson(e.target.value)}></input>
+                        <input className="form-items-input" type="number" placeholder="price per person" ref={PricePerPersonInputElement}></input>
                     </div>
                     <div className="form-items">
                         <label>Destination Places:</label>
-                        <input className="form-items-input" type="text" placeholder="destination places" value={destinationPlaces} onChange={(e)=>setDestinationPlaces(e.target.value)}></input>
+                        <input className="form-items-input" type="text" placeholder="destination places" ref={DestinationPlacesInputElement}></input>
+                    </div>
+                    <div className="form-items">
+                        <label>Contact:</label>
+                        <input className="form-items-input" type="text" placeholder="contact" ref={ContactInputElement}></input>
                     </div>
                     <div className="form-button-part">
-                        <Button sx={{mt:2,mb:2}} variant="contained" endIcon={<SendIcon />} type="submit" onClick={(e)=>addTour(e)}>
+                        <Button sx={{mt:2,mb:2}} variant="contained" endIcon={<SendIcon />} type="submit" >
                             ADD TO TOURS
                         </Button>
                     </div>
                 </form>
+
             </div>
         </div>
         </>

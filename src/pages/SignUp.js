@@ -2,40 +2,73 @@ import "../assets/css/SignUp.css"
 import { useNavigate } from 'react-router-dom';
 import { login } from './../redux/userSlice';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const SignUp = () =>{
 
     const navigate = useNavigate();
 
-    const dispatch = useDispatch();
-
     const loginHere=()=>{
         navigate("/Login")
     }
 
-    const [name,setName] = useState("");
-    const [lastname,setLastname] = useState("");
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
-    const [confirmpassword,setConfirmpassword] = useState("");
-    const [phone,setPhone] = useState("");
+    const NameInputElement = useRef();
+    const LastNameInputElement = useRef();
+    const EmailInputElement = useRef();
+    const PasswordInputElement = useRef();
+    const ConfirmPasswordInputElement = useRef();
+    const PhoneInputElement = useRef();
 
-    const submit=(e)=>{
+    const user = useSelector(state=>state.user.user);
+
+    var config = {
+        headers : {'Content-Type':'application/x-www-form-urlencoded'}
+    };
+
+    const dispatch = useDispatch();
+    
+    const handleSubmit=(e)=>{
         e.preventDefault();
-        dispatch(login(localStorage.setItem("user",JSON.stringify({
-            name:name,
-            lastname:lastname,
-            email:email,
-            password:password,
-            confirmpassword:confirmpassword,
-            phone:phone,
-            loggedIn:true
-        }))))
+
+
+        if(NameInputElement.current.value && LastNameInputElement.current.value && EmailInputElement.current.value && PasswordInputElement.current.value && ConfirmPasswordInputElement.current.value && PhoneInputElement.current.value){
+            if(PasswordInputElement.current.value.length>=8){
+                if(PasswordInputElement.current.value===ConfirmPasswordInputElement.current.value){
+                    
+                    const obj = {
+                        name:NameInputElement.current?.value,
+                        lastname:LastNameInputElement.current?.value,
+                        email:EmailInputElement.current?.value,
+                        password:PasswordInputElement.current?.value,
+                        confirmpassword:ConfirmPasswordInputElement.current?.value,
+                        phone:PhoneInputElement.current?.value,
+                        loggedIn:true
+                    }
+                    
+                    axios.post("http://localhost:80/react-boat-project/addUser.php",obj,config).then(response=>{
+                        console.log(response)
+                    }).catch(error=>{
+                        console.log("hata oluştu")
+                    }) 
+                    // navigate("/")        dispatch(login(obj));
+                 }
+                else{
+                    alert("Passwords are not the same!");
+                }
+            }
+            else{
+                alert("Password must be at least 8 caharacters")
+            }
+        }
+        else{
+            alert("All fields must be filled")
+        } 
         
-        navigate("/")
     }
 
+       
     return(
         <>
        
@@ -44,27 +77,30 @@ const SignUp = () =>{
                 <h1 className="signup-header">Sign up</h1>
                 <p>Already have an account? <span className="login-here" onClick={loginHere}>Login here</span> </p>
 
-                <form className="leftside-and-rightside">
-                <div className="left-side">
-                <p>Name :</p>
-                <input type="text" placeholder="name" value={name} onChange={(e)=>setName(e.target.value)}></input>
-                <p>Last Name :</p>
-                <input type="text" placeholder="last name" value={lastname} onChange={(e)=>setLastname(e.target.value)} ></input>
-                <p>Email :</p>
-                <input type="email" placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} ></input>
-                </div>
+                <form className="signup-form-items" onSubmit={(e)=>{handleSubmit(e)}}>
+                    <div className="leftside-and-rightside">
+                    <div className="left-side">
+                    <p>Name :</p>
+                    <input type="text" placeholder="name" name="name" ref={NameInputElement} ></input>
+                    <p>Last Name :</p>
+                    <input type="text" placeholder="last name" ref={LastNameInputElement} ></input>
+                    <p>Email :</p>
+                    <input type="email" placeholder="email" ref={EmailInputElement} ></input>
+                    </div>
 
-                <div className="right-side">
-                <p>Password :</p>
-                <input type="password" placeholder="password" value={password} onChange={(e)=>setPassword(e.target.value)} ></input>
-                <p>Confirm Password :</p>
-                <input type="password" placeholder="confirm password" value={confirmpassword} onChange={(e)=>setConfirmpassword(e.target.value)}></input>
-                <p>Phone Number :</p>
-                <input type="text" placeholder="phone number" value={phone} onChange={(e)=>setPhone(e.target.value)}></input>
-                </div>
+                    <div className="right-side">
+                    <p>Password :</p>
+                    <input type="password" placeholder="password" ref={PasswordInputElement} ></input>
+                    <p>Confirm Password :</p>
+                    <input type="password" placeholder="confirm password" ref={ConfirmPasswordInputElement} ></input>
+                    <p>Phone Number :</p>
+                    <input type="text" placeholder="phone number" ref={PhoneInputElement} ></input>
+                    </div>
+                    </div>
+                    <div className="signup-btn-box">
+                    <button className="signup-submit-button" type="submit">SUBMIT</button>
+                    </div>
                 </form>
-           
-                <button className="submit-button" type="submit" onClick={(e)=>submit(e)}>SUBMIT</button>
 
             </div>
         </div>

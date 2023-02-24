@@ -10,7 +10,12 @@ const Login = () =>{
     const navigate = useNavigate();
 
     const login=()=>{
-        navigate("/")
+        if(email && password){
+                navigate("/")
+        }
+        else{
+            alert("email and password should be filled")
+        }
     }
 
     const signup=()=>{

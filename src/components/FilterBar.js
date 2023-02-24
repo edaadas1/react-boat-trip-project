@@ -35,7 +35,7 @@ const FilterBar = () => {
                 <input className='time-picker' type="time" onChange={(e)=>setTime(e.target.value)}></input>
                 </div>
                 <hr></hr>
-                <h4>Select Location</h4>
+                <h4>Search Location</h4>
                 <input type="text" placeholder='search location' className='search-input'></input>
 
             </div>

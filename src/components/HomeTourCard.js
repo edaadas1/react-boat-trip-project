@@ -5,6 +5,7 @@ import ticket from "../ticket.json"
 import Lottie from "lottie-react"
 
 const HomeTourCard = () => {
+
   return (
     <>
         <div className='tour-card'>
@@ -18,8 +19,8 @@ const HomeTourCard = () => {
                     <p className='tour-p'>Mugla/Marmaris</p>
                 </div>
                 <div className='tour-info-box'>
-                    <p>Available Status:</p>
-                    <p className='tour-p'>YES/NO</p>
+                    <p>Address:</p>
+                    <p className='tour-p'>Kordon sahili kaymakamlık karşısı, 48700 Marmaris/Muğla</p>
                 </div>
                 <div className='tour-info-box'>
                     <p>Available Seat Number:</p>
@@ -30,8 +31,12 @@ const HomeTourCard = () => {
                     <p className='tour-p'>18.06.2023</p>
                 </div>
                 <div className='tour-info-box'>
-                    <p>Time:</p>
+                    <p>Departure Time:</p>
                     <p className='tour-p'>09:30</p>
+                </div>
+                <div className='tour-info-box'>
+                    <p>End Time:</p>
+                    <p className='tour-p'>18:30</p>
                 </div>
                 <div className='tour-info-box'>
                     <p>Menu:</p>
@@ -39,7 +44,7 @@ const HomeTourCard = () => {
                 </div>
                 <div className='tour-info-box'>
                     <p>Price Per Person:</p>
-                    <p className='tour-p'>150</p>
+                    <p className='tour-p'>$ 150</p>
                 </div>
                 <div className='tour-info-box'>
                     <p>Destination Places:</p>
@@ -53,6 +58,10 @@ const HomeTourCard = () => {
                             <li>Yeşildeniz</li>
                         </ul>
                     </p>
+                </div>
+                <div className='tour-info-box'>
+                    <p>Contact:</p>
+                    <p className='tour-p'>05457473217</p>
                 </div>
                 <button className='buy-btn' type='submit'>
                     Buy a Ticket

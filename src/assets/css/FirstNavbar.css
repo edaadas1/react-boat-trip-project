@@ -28,7 +28,6 @@
     background-color: transparent;
     font-weight: bold;
     transition: ease-in-out .2s;
-    
 }
 
 .first-navbar-login-btn{
@@ -40,6 +39,8 @@
 
 .first-navbar-add-tour-btn:hover,.first-navbar-login-btn:hover{
     cursor: pointer;
+    background-color: white;
+    color: black;
     box-shadow: 5px 5px 5px rgb(85, 80, 80) ;
 }
 

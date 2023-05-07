@@ -10,5 +10,25 @@
     background-size: cover;
     background-position: center;
     position: relative;
-    overflow: hidden
+}
+
+.my-advertisements-cards-part{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.my-advertisements-buy-btn{
+    border: none;
+    background: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.my-advertisements-btn{
+    width: 40%;
 }

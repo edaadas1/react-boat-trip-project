@@ -1,12 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import SecondNavbar from './../components/SecondNavbar';
 import "../assets/css/NewTour.css"
-import addboat from "../assets/images/addboat.png"
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import {MdCloudUpload,MdDelete} from "react-icons/md"
+import { AiFillFileImage } from 'react-icons/ai';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { TimePicker } from "@mui/x-date-pickers";
+
 
 const NewTour =()=>{
 
@@ -47,68 +54,151 @@ const NewTour =()=>{
     const tour = useSelector(state=>state.newtour.tour)
     console.log(tour)
 
+    
+    const [image,setImage] = useState(null);
+    const [fileName,setFileName] = useState("No selected file")
+
+
     return(
         <>
         <div className="new-tour-body">
-        <SecondNavbar />
-         <div className="newtour-card">
-            <img alt="boat img" src={addboat} className="addboat-img"></img>
-                <form className="newtour-form" onSubmit={(e)=>addTour(e)}>
-                <div className="form-items">
-                        <label>Boat Name:</label>
-                        <input className="form-items-input" placeholder="boat name" ref={BoatNameInputElement}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>City:</label>
-                        <input className="form-items-input" type="text" placeholder="city" ref={CityInputElement}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>District:</label>
-                        <input className="form-items-input" type="text" placeholder="district" ref={DistrictInputElement} ></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Address:</label>
-                        <input className="form-items-input" type="text" placeholder="address" ref={AddressInputElement} ></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Total Capacity:</label>
-                        <input className="form-items-input" type="number" placeholder="total capacity" ref={TotalCapacityInputElement}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Date:</label>
-                        <input className="form-items-input" type="date" ref={DateInputElement}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Departure Time:</label>
-                        <input className="form-items-input" type="time" ref={DepartureTimeInputElement} ></input>
-                    </div>
-                    <div className="form-items">
-                        <label>End Time:</label>
-                        <input className="form-items-input" type="time" ref={EndTimeInputElement}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Menu:</label>
-                        <input className="form-items-input" type="text" placeholder="menu" ref={MenuInputElement}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Price Per Person:</label>
-                        <input className="form-items-input" type="number" placeholder="price per person" ref={PricePerPersonInputElement}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Destination Places:</label>
-                        <input className="form-items-input" type="text" placeholder="destination places" ref={DestinationPlacesInputElement}></input>
-                    </div>
-                    <div className="form-items">
-                        <label>Contact:</label>
-                        <input className="form-items-input" type="text" placeholder="contact" ref={ContactInputElement}></input>
+            <SecondNavbar />
+             <div className="newtour-card">
+                    <form action="" className='file-uploader-form' onClick={()=>document.querySelector(".input-field").click()}>
+                        <input type="file" className='input-field' hidden
+                        onChange={({target:{files}})=>{
+                        files[0] && setFileName(files[0].name)
+                        if(files){
+                        setImage(URL.createObjectURL(files[0]))
+                        }
+                        }}
+                        />
+
+                        {image ?
+                        <img src={image} width={300} height={10} alt={fileName} />
+                        :
+                        <>
+                        <MdCloudUpload color="#147cf" size={60}/>
+                        <p>Browse Files to upload</p>
+                        </>
+                        }
+                    </form>
+
+                    <section className='uploaded-row'>
+                        <AiFillFileImage color="#1475cf" />
+                        <span className='upload-content'>
+                        {fileName}
+                        <MdDelete
+                        onClick={()=>{
+                            setFileName("No Selected File")
+                            setImage(null)
+                        }}
+                        />
+                        </span>
+                    </section>
+                    <div className="new-tour-columns">
+                        <div className="new-tour-left-column">
+                            <form className="newtour-form" onSubmit={(e)=>addTour(e)}>
+                            <TextField
+                                style={{width:400,marginBottom:20,marginTop:10}}
+                                required
+                                id="outlined-required"
+                                label="Required"
+                                defaultValue="Boat Name"
+                                ref={BoatNameInputElement}
+                                />
+                                <TextField
+                                style={{width:400,marginBottom:20}}
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="City"
+                                    ref={CityInputElement}
+                                />
+                                <TextField
+                                style={{width:400,marginBottom:20}}
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="District"
+                                    ref={DistrictInputElement}
+                                />
+                                <TextField
+                                style={{width:400,marginBottom:20}}
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Address"
+                                    ref={AddressInputElement}
+                                />
+                                <TextField
+                                style={{width:400,marginBottom:20}}
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Total Capacity"
+                                    ref={TotalCapacityInputElement}
+                                />
+                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <DemoContainer components={['DatePicker']}>
+                                        <DatePicker className="new-tour-picker" label="Select Date" ref={DateInputElement} />
+                                    </DemoContainer>
+                                </LocalizationProvider>
+                            </form>
+                        </div>
+                        <div className="new-tour-right-column">
+                        <form className="newtour-form" onSubmit={(e)=>addTour(e)}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DemoContainer components={['TimePicker']}>
+                            <TimePicker className="new-tour-picker" label="Departure Time" ref={DepartureTimeInputElement} />
+                            </DemoContainer>
+                        </LocalizationProvider>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DemoContainer components={['TimePicker']}>
+                            <TimePicker className="new-tour-picker" label="End Time" ref={EndTimeInputElement}/>
+                            </DemoContainer>
+                        </LocalizationProvider>
+            
+                                <TextField
+                                style={{width:400,marginBottom:20}}
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Menu"
+                                    ref={MenuInputElement}
+                                />
+                                <TextField
+                                style={{width:400,marginBottom:20}}
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Price Per Person"
+                                    ref={PricePerPersonInputElement}
+                                />
+                                <TextField
+                                style={{width:400,marginBottom:20}}
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Destinations"
+                                    ref={DestinationPlacesInputElement}
+                                />
+                                <TextField
+                                style={{width:400,marginBottom:20,marginTop:8}}
+                                    required
+                                    id="outlined-required"
+                                    label="Required"
+                                    defaultValue="Contact"
+                                    ref={ContactInputElement}
+                                />
+                            </form>
+                        </div>
                     </div>
                     <div className="form-button-part">
                         <Button sx={{mt:2,mb:2}} variant="contained" endIcon={<SendIcon />} type="submit" >
                             ADD TO TOURS
                         </Button>
                     </div>
-                </form>
-
             </div>
         </div>
         </>

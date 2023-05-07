@@ -3,8 +3,15 @@ import "../assets/css/HomeTourCard.css";
 import thunderbird from "../assets/images/thunderbird.jpg"
 import ticket from "../ticket.json"
 import Lottie from "lottie-react"
+import { useNavigate } from 'react-router-dom/dist';
 
 const HomeTourCard = () => {
+
+    const navigate = useNavigate();
+
+    const goPayment =()=>{
+        navigate("/Payment")
+    }
 
   return (
     <>
@@ -63,7 +70,7 @@ const HomeTourCard = () => {
                     <p>Contact:</p>
                     <p className='tour-p'>05457473217</p>
                 </div>
-                <button className='buy-btn' type='submit'>
+                <button className='buy-btn' type='submit' onClick={goPayment}>
                     Buy a Ticket
                     <Lottie animationData={ticket} style={{width:"70px"}}></Lottie>
                 </button>

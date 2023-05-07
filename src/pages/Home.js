@@ -6,8 +6,6 @@ import HomeTourCard from './../components/HomeTourCard';
 
 const Home =()=>{
 
-
-
     return(
         <>
         <div className="home-body">

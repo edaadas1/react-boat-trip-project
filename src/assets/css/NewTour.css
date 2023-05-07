@@ -14,7 +14,7 @@
 }
 
 .newtour-card{
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,27 +26,11 @@
     background: rgba(255,255,255,.6);
 }
 
-.addboat-img{
-    width: 15%;
-}
-
-.addboat-img:hover{
-    cursor: pointer;
-}
-
 .newtour-form{
     width: 90%;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-}
-
-.form-items{
-    width: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
 }
 
 .form-button-part{
@@ -55,7 +39,65 @@
     align-items: center;
 }
 
-.form-items-input{
-    margin: 0;
+.new-tour-columns{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-tour-left-column,.new-tour-right-column{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-uploader-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #1475cf;
+    height: 200px;
+    width: 35%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.uploaded-row{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 5px;
     border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.upload-content{
+    display: flex;
+    align-items: center;
+}
+
+#root > div.new-tour-body > div.newtour-card > form > img{
+    height: 200px;
+    width: 100%;
+}
+
+.new-tour-picker{
+    width: 440px;
+}
+
+#root > div.new-tour-body > div.newtour-card > div.new-tour-columns > div.new-tour-right-column > form > div:nth-child(1) > div > div{
+    width: 395px;
+    margin-bottom: 10px;
+}
+
+#root > div.new-tour-body > div.newtour-card > div.new-tour-columns > div.new-tour-right-column > form > div:nth-child(2) > div > div{
+    width: 395px;
+    margin-bottom: 25px;
 }

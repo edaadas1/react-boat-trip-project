@@ -32,6 +32,8 @@
 
 .second-navbar-back-tours-btn:hover,.second-navbar-user-part:hover{
     cursor: pointer;
+    background-color: white;
+    color: black;
     box-shadow: 5px 5px 5px rgb(85, 80, 80) ;
 }
 

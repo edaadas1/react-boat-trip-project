@@ -34,6 +34,10 @@
     overflow: hidden;
 }
 
+.tour-card-name{
+    font-weight: bold;
+}   
+
 .tour-card-info-part{
     width: 100%;
 }
@@ -41,6 +45,10 @@
 .tour-info-box{
     display: flex;
     justify-content: space-between;
+}
+
+.tour-info-box p:first-child{
+    font-weight: bold;
 }
 
 .tour-p{
